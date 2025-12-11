@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:38:06 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/11 16:45:25 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/11 17:28:05 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ int main(int ac, char *av[])
     int i = 1;
     while(av[i] != NULL)
     {
-        
+        if(analyse_string(av[i]))
+        {
+            
+        }
     }
 }

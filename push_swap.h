@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:01:49 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/11 17:13:02 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/11 17:31:04 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-/*Libft Functions*/
+/*Parsing Functions*/
 
 int ft_isdigit(int c);
 int ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -25,6 +25,10 @@ int ft_atoi(const char *str);
 void ft_putstring(char *s);
 size_t ft_strlength(char *s);
 char **ft_split(char const *s, char c);
+int	ft_isspace(int c);
+char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strdup(char *s);
+
 /*Macros*/
 #ifndef MAX
 #define MAX 0x7fffffff
