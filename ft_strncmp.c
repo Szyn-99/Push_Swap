@@ -6,13 +6,11 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 10:44:51 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/10/31 18:15:38 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/11 16:38:34 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
-#include <string.h>
+#include "push_swap.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 14:30:27 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/11 16:38:53 by aymel-ha         ###   ########.fr       */
+/*   Created: 2025/10/16 11:29:52 by aymel-ha          #+#    #+#             */
+/*   Updated: 2025/12/11 17:07:45 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_isdigit(int c)
+int	ft_lstsize(t_list *lst)
 {
-	if (48 <= c && c <= 57)
+	int		counter;
+	t_list	*head;
+
+	if (!lst)
+		return (0);
+	counter = 0;
+	head = lst;
+	while (head != NULL)
 	{
-		return (1);
+		counter++;
+		head = head->next;
 	}
-	return (0);
+	return (counter);
 }

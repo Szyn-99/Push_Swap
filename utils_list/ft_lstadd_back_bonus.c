@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/13 14:30:27 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/11 16:38:53 by aymel-ha         ###   ########.fr       */
+/*   Created: 2025/10/16 13:13:57 by aymel-ha          #+#    #+#             */
+/*   Updated: 2025/12/11 17:08:07 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_isdigit(int c)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (48 <= c && c <= 57)
+	t_list	*tmp;
+
+	if (!lst || !new)
+		return ;
+	if (*lst == NULL)
+		*lst = new;
+	else
 	{
-		return (1);
+		tmp = ft_lstlast(*lst);
+		tmp->next = new;
 	}
-	return (0);
 }
