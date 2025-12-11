@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 23:25:32 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/11 23:51:20 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/11 23:54:39 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@ void op_rotate_reverse(t_list **stack)
     t_list *before_last_node = NULL;
     
     before_last_node = *stack;
-    while(before_last_node->next-e)
-        before_last_node = before_last_node->next;
-    before_last_node= NULL;
-    last_node = ft_lstlast(*stack);
     first_node = *stack;
-    *stack = last_node;
+    while(before_last_node->next->next)
+        before_last_node = before_last_node->next;
+    
+    last_node = ft_lstlast(*stack);
+    before_last_node->next = NULL;
     last_node->next = first_node;
+    *stack = last_node;
 }
 
 
@@ -35,16 +36,16 @@ void op_rotate_reverse(t_list **stack)
 void op_rotate_reverse_a(t_list **stack_a)
 {
     op_rotate_reverse(stack_a);
-    ft_putstring("ra\n");
+    ft_putstring("rra\n");
 }
 void op_rotate_reverse_b(t_list **stack_b)
 {
     op_rotate_reverse(stack_b);
-    ft_putstring("rb\n");
+    ft_putstring("rrb\n");
 }
 void op_rotate_reverse_r(t_list **stack_a, t_list **stack_b)
 {
     op_rotate_reverse(stack_a);
     op_rotate_reverse(stack_b);
-    ft_putstring("rr\n");
+    ft_putstring("rrr\n");
 }
