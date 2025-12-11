@@ -12,17 +12,19 @@
 
 #include "push_swap.h"
 
-size_t ft_strlength(char *s)
+size_t	ft_strlength(char *s)
 {
-    size_t i = 0;
-    while(s[i] != '\0')
-        i++;
-    return i;
+	size_t	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }
 
-void ft_putstring(char *s)
+void	ft_putstring(char *s)
 {
-    write(1, &s , ft_strlength(s));
+	write(1, &s, ft_strlength(s));
 }
 
 char	*ft_strdup(char *s)
@@ -44,7 +46,6 @@ char	*ft_strdup(char *s)
 	dup[i] = '\0';
 	return (dup);
 }
-
 
 char	*ft_strjoin(char *s1, char *s2)
 {
@@ -68,9 +69,9 @@ char	*ft_strjoin(char *s1, char *s2)
 	j = 0;
 	while (s2[j])
 	{
-		result[i+j] = s2[j];
+		result[i + j] = s2[j];
 		j++;
 	}
-	result[i+j] = '\0';
-	return (free(s1),result);
+	result[i + j] = '\0';
+	return (free(s1), result);
 }

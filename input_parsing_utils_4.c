@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 18:11:37 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/11 21:54:04 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/12 00:00:34 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void	initialise_list(t_list **stack_a, char *concat)
 		ft_lstclear(stack_a);
 		return ;
 	}
-	i = 0;
-	while (raw_values[i] != NULL)
+	i = -1;
+	while (raw_values[++i] != NULL)
 	{
 		raw_val_n = ft_atoi(raw_values[i]);
 		node = ft_lstnew(raw_val_n);
@@ -50,10 +50,10 @@ void	initialise_list(t_list **stack_a, char *concat)
 			return ;
 		}
 		ft_lstadd_back(stack_a, node);
-		i++;
 	}
 	clear_strings(raw_values);
 }
+
 void	generate_index_util(int *array, int size)
 {
 	int	x;
@@ -78,10 +78,12 @@ void	generate_index_util(int *array, int size)
 	}
 }
 
-void get_index_util(t_list *stack_a, int list_size, int *array)
+void	get_index_util(t_list *stack_a, int list_size, int *array)
 {
-    int i = 0;
-    while (stack_a)
+	int	i;
+
+	i = 0;
+	while (stack_a)
 	{
 		i = 0;
 		while (i < list_size)
@@ -92,7 +94,7 @@ void get_index_util(t_list *stack_a, int list_size, int *array)
 		}
 		stack_a = stack_a->next;
 	}
-    free(array);
+	free(array);
 }
 
 void	init_index(t_list *stack_a)
@@ -101,15 +103,15 @@ void	init_index(t_list *stack_a)
 	int		list_size;
 	int		i;
 	int		*array;
-    
+
 	copy = stack_a;
 	list_size = ft_lstsize(stack_a);
-    array = malloc(sizeof(int) * list_size);
-    i = 0;
-    if(!array)
-    {
-        return ;
-    }
+	array = malloc(sizeof(int) * list_size);
+	i = 0;
+	if (!array)
+	{
+		return ;
+	}
 	while (i < list_size)
 	{
 		array[i] = stack_a->value_raw;

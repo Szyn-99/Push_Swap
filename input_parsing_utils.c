@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:21:58 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/11 20:47:59 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/12 00:00:51 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	ft_isdigit(int c)
 	}
 	return (0);
 }
+
 int	ft_isspace(int c)
 {
 	if ((9 <= c && c <= 13) || c == 32)
@@ -28,6 +29,7 @@ int	ft_isspace(int c)
 	}
 	return (0);
 }
+
 int	analyse_string(char *str)
 {
 	int	i;
