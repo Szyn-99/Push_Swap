@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:01:49 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/11 19:24:44 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/11 22:45:09 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_list
 
 	struct s_list	*next;
 }					t_list;
+void	ft_lstadd_front(t_list **lst, t_list *new);
 void				ft_lstadd_back(t_list **lst, t_list *new);
 void				ft_lstclear(t_list **lst);
 void				ft_lstdelone(t_list *lst);

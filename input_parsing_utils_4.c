@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 18:11:37 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/11 21:51:39 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/11 21:54:04 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,10 +104,12 @@ void	init_index(t_list *stack_a)
     
 	copy = stack_a;
 	list_size = ft_lstsize(stack_a);
-	i = 0;
     array = malloc(sizeof(int) * list_size);
+    i = 0;
     if(!array)
+    {
         return ;
+    }
 	while (i < list_size)
 	{
 		array[i] = stack_a->value_raw;
