@@ -6,11 +6,11 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 11:03:33 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/11 17:10:57 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/11 18:28:44 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 t_list	*ft_lstnew(int value)
 {
