@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 18:11:37 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/11 20:30:59 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/11 21:51:39 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,25 +78,10 @@ void	generate_index_util(int *array, int size)
 	}
 }
 
-void	init_index(t_list *stack_a)
+void get_index_util(t_list *stack_a, int list_size, int *array)
 {
-	t_list	*copy;
-	int		list_size;
-	int		i;
-	int		array[list_size];
-
-	copy = stack_a;
-	list_size = ft_lstsize(stack_a);
-	i = 0;
-	while (i < list_size)
-	{
-		array[i] = stack_a->value_raw;
-		stack_a = stack_a->next;
-		i++;
-	}
-	generate_index_util(array, list_size);
-	stack_a = copy;
-	while (stack_a)
+    int i = 0;
+    while (stack_a)
 	{
 		i = 0;
 		while (i < list_size)
@@ -107,4 +92,29 @@ void	init_index(t_list *stack_a)
 		}
 		stack_a = stack_a->next;
 	}
+    free(array);
+}
+
+void	init_index(t_list *stack_a)
+{
+	t_list	*copy;
+	int		list_size;
+	int		i;
+	int		*array;
+    
+	copy = stack_a;
+	list_size = ft_lstsize(stack_a);
+	i = 0;
+    array = malloc(sizeof(int) * list_size);
+    if(!array)
+        return ;
+	while (i < list_size)
+	{
+		array[i] = stack_a->value_raw;
+		stack_a = stack_a->next;
+		i++;
+	}
+	generate_index_util(array, list_size);
+	stack_a = copy;
+	get_index_util(stack_a, list_size, array);
 }

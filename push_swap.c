@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:38:06 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/11 20:32:32 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/11 21:35:10 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int	main(int ac, char *av[])
 	t_list	*copy;
 	char	*concat;
 
-	// if(!(ac >= 2))
-	//     return (ft_putstring("nothing to do"), 0);
+	if(!(ac >= 2))
+	    return (ft_putstring("nothing to do"), 0);
 	i = 0;
 	stack_a = NULL;
 	copy = NULL;
