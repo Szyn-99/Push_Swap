@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 10:50:51 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/12 11:48:06 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/12 12:18:50 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,18 @@ size_t	ft_strlength(char *s)
 		i++;
 	return (i);
 }
-void ft_putchar(char c)
+
+void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
+
 void	ft_putstring(char *s)
 {
-	int i = 0;
-	while(s[i])
+	int	i;
+
+	i = 0;
+	while (s[i])
 	{
 		ft_putchar(s[i]);
 		i++;

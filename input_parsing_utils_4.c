@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 18:11:37 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/12 12:09:30 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/12 12:19:21 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	initialise_list(t_list **stack_a, char *concat)
 	raw_values = ft_split(concat, ' ');
 	if (!raw_values)
 	{
-		(1) && (ft_lstclear(stack_a), free(concat), concat = NULL);
 		return ;
 	}
 	i = -1;
