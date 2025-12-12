@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:38:06 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/12 00:15:11 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/12 11:34:58 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,25 +39,25 @@ int	main(int ac, char *av[])
 {
 	int		i;
 	t_list	*stack_a;
+	t_list	*stack_b;
 	t_list	*copy;
+	t_list *copy_b;
 	char	*concat;
 
 	if (!(ac >= 2))
 		return (ft_putstring("nothing to do"), 0);
 	i = 0;
 	stack_a = NULL;
+	stack_b = NULL;
 	copy = NULL;
 	concat = concatenated_string(av);
     
 	initialise_list(&stack_a, concat);
 	init_index(stack_a);
-	copy = stack_a;
-	while (stack_a)
-	{
-		printf("value -> %d -------------  index -> %d\n", stack_a->value_raw,
-			stack_a->value_index);
-		stack_a = stack_a->next;
-	}
+	binary_radix_sort(&stack_a, &stack_b);
+	copy_b = stack_b;
 	free(concat);
 	ft_lstclear(&copy);
+	ft_lstclear(&copy_b);
+
 }

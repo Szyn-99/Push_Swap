@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:01:49 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/11 22:45:09 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/12 10:52:48 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,43 @@ char				*ft_strdup(char *s);
 int					analyse_string(char *str);
 void				initialise_list(t_list **stack_a, char *concat);
 void				init_index(t_list *stack_a);
+/*Operations*/
+void	op_push(t_list **stack_d, t_list **stack_s);
+void	op_push_a(t_list **stack_a, t_list **stack_b);
+void	op_push_b(t_list **stack_b, t_list **stack_a);
+
+void	op_rotate_reverse(t_list **stack);
+void	op_rotate_reverse_a(t_list **stack_a);
+void	op_rotate_reverse_b(t_list **stack_b);
+
+void	op_rotate(t_list **stack);
+void	op_rotate_a(t_list **stack_a);
+void	op_rotate_b(t_list **stack_b);
+void	op_rotate_rr(t_list **stack_a, t_list **stack_b);
+
+void	op_swap(t_list **stack);
+void	op_swap_a(t_list **stack_a);
+void	op_swap_b(t_list **stack_b);
+void	op_swap_ss(t_list **stack_a, t_list **stack_b);
+
+
+/*Binary Radix Sort*/
+typedef struct s_bss
+{
+	t_list *iteration;
+    int size;
+    int i;
+    int bits_to_shift;
+} t_bss;
+void binary_radix_sort(t_list **stack_a, t_list **stack_b);
+
 /*Macros*/
 # ifndef MAX
 #  define MAX 0x7fffffff
+# endif
+
+# ifndef BIT_MAX
+#  define BIT_MAX 32
 # endif
 
 # ifndef MIN

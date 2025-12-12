@@ -6,11 +6,11 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:38:08 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/12 00:07:06 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/12 10:51:33 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	op_swap(t_list **stack)
 {

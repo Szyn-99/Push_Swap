@@ -9,13 +9,18 @@ SFILES = ft_split.c \
 	input_parsing_utils_3.c \
 	input_parsing_utils_4.c \
 	input_parsing_utils.c \
+	binary_radix_sort.c \
 	push_swap.c \
 	./utils_list/ft_lstadd_back_bonus.c \
 	./utils_list/ft_lstclear_bonus.c \
 	./utils_list/ft_lstdelone_bonus.c \
 	./utils_list/ft_lstlast_bonus.c \
 	./utils_list/ft_lstnew_bonus.c \
-	./utils_list/ft_lstsize_bonus.c
+	./utils_list/ft_lstsize_bonus.c \
+	./operations/push.c \
+	./operations/rotate.c \
+	./operations/rotate_reverse.c \
+	./operations/swap.c 
 
 OFILES = $(SFILES:.c=.o)
 
