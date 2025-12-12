@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 10:50:51 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/12 11:36:52 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/12 11:48:06 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	*ft_strdup(char *s)
 		i++;
 	}
 	dup[i] = '\0';
-	return (free(s), dup);
+	return (dup);
 }
 
 char	*ft_strjoin(char *s1, char *s2)

@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:38:06 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/12 11:34:58 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/12 12:17:18 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*concatenated_string(char *av[])
 	char	*le_string;
 	int		argument_status;
 
-	i = 0;
+	i = 1;
 	le_string = NULL;
 	while (av[i] != NULL)
 	{
@@ -51,13 +51,16 @@ int	main(int ac, char *av[])
 	stack_b = NULL;
 	copy = NULL;
 	concat = concatenated_string(av);
-    
+	if(!concat)
+		printf("failed");
+	
+	
 	initialise_list(&stack_a, concat);
+	free(concat);
 	init_index(stack_a);
 	binary_radix_sort(&stack_a, &stack_b);
 	copy_b = stack_b;
-	free(concat);
-	ft_lstclear(&copy);
-	ft_lstclear(&copy_b);
+	ft_lstclear(&stack_a);
+	ft_lstclear(&stack_b);
 
 }
