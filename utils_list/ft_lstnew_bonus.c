@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: szyn <szyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 11:03:33 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/11 18:28:44 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/13 18:21:24 by szyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_list	*ft_lstnew(int value)
 	if (!head)
 		return (NULL);
 	head->value_raw = value;
+	head->value_index = 0;
 	head->next = NULL;
 	return (head);
 }

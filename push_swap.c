@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: szyn <szyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:38:06 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/13 16:48:32 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/13 19:29:10 by szyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 char	*concatenated_string(char *av[])
 {
@@ -48,15 +49,33 @@ int	main(int ac, char *av[])
 	stack_b = NULL;
 	concat = concatenated_string(av);
 	if (!concat)
-		printf("failed");
-	size = ft_lstsize(stack_a);
+	{
+		write(2, "Error\n", 6);
+		return (1);
+	}
 	initialise_list(&stack_a, concat);
-	// if (size > 500)
-	chunks_sort(&stack_a, &stack_b);
-	// else
-	// 	chunks_sort(&stack_a, &stack_b);
+	/* initialise_list doesn't free concat on error; caller frees it */
+	if (!stack_a)
+	{
+		free(concat);
+		write(2, "Error\n", 6);
+		return (1);
+	}
+	/* set indices (and detect duplicates inside init_index) */
+	init_index(&stack_a);
+	size = ft_lstsize(stack_a);
+	
+	if (size > 500)
+		binary_radix_sort(&stack_a, &stack_b);
+	else
+		chunks_sort(&stack_a, &stack_b);
 	free(concat);
-	init_index(stack_a);
+	while(stack_a)
+	{
+		printf("raw value = %d\nindex value = %d\n", stack_a->value_raw, stack_a->value_index);
+		stack_a = stack_a->next;
+	}
 	ft_lstclear(&stack_a);
 	ft_lstclear(&stack_b);
+	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_parsing_utils_4.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: szyn <szyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 18:11:37 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/12 12:19:21 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/13 18:21:24 by szyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,10 @@ void	initialise_list(t_list **stack_a, char *concat)
 		node = ft_lstnew(raw_val_n);
 		if (!node)
 		{
+			/* allocation failed for node: free split results and any built list
+			   caller owns `concat` and should free it; do not free it here */
 			clear_strings(raw_values);
 			ft_lstclear(stack_a);
-			free(concat);
 			return ;
 		}
 		ft_lstadd_back(stack_a, node);
@@ -97,15 +98,15 @@ void	get_index_util(t_list *stack_a, int list_size, int *array)
 	free(array);
 }
 
-void	init_index(t_list *stack_a)
+void	init_index(t_list **stack_a)
 {
 	t_list	*copy;
 	int		list_size;
 	int		i;
 	int		*array;
 
-	copy = stack_a;
-	list_size = ft_lstsize(stack_a);
+	copy = *stack_a;
+	list_size = ft_lstsize(*stack_a);
 	array = malloc(sizeof(int) * list_size);
 	i = 0;
 	if (!array)
@@ -114,11 +115,27 @@ void	init_index(t_list *stack_a)
 	}
 	while (i < list_size)
 	{
-		array[i] = stack_a->value_raw;
-		stack_a = stack_a->next;
+		array[i] = (*stack_a)->value_raw;
+		*stack_a = (*stack_a)->next;
 		i++;
 	}
+	/* sort array */
 	generate_index_util(array, list_size);
-	stack_a = copy;
-	get_index_util(stack_a, list_size, array);
+	/* detect duplicates in the sorted array */
+	i = 0;
+	while (i < list_size - 1)
+	{
+		if (array[i] == array[i + 1])
+		{
+			/* duplicate found: report and exit (free array first) */
+			write(2, "Error\n", 6);
+			free(array);
+			ft_lstclear(&copy);
+			exit(1);
+		}
+		i++;
+	}
+	/* restore stack pointer and set indices */
+	*stack_a = copy;
+	get_index_util(*stack_a, list_size, array);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_parsing_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: szyn <szyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:21:58 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/12 00:14:53 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/13 18:21:25 by szyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,9 @@ int	ft_isspace(int c)
 
 int	analyse_string(char *str)
 {
-	int	i;
-	int	flag;
+	int		i;
 
 	i = 0;
-	flag = 1;
 	while (str[i])
 	{
 		if (ft_isspace(str[i]))
