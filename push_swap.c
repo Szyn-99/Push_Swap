@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:38:06 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/13 15:05:23 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/13 16:48:32 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,27 +39,24 @@ int	main(int ac, char *av[])
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
-	t_list	*copy;
-	t_list	*copy_b;
 	char	*concat;
-	int size;
+	int		size;
+
 	if (!(ac >= 2))
 		return (ft_putstring("nothing to do"), 0);
 	stack_a = NULL;
 	stack_b = NULL;
-	copy = NULL;
 	concat = concatenated_string(av);
 	if (!concat)
 		printf("failed");
 	size = ft_lstsize(stack_a);
 	initialise_list(&stack_a, concat);
-	if(size > 500)
-		binary_radix_sort(&stack_a, &stack_b), 0;
-	else
-		chunks_sort(&stack_a, &stack_b);
+	// if (size > 500)
+	chunks_sort(&stack_a, &stack_b);
+	// else
+	// 	chunks_sort(&stack_a, &stack_b);
 	free(concat);
 	init_index(stack_a);
-	copy_b = stack_b;
 	ft_lstclear(&stack_a);
 	ft_lstclear(&stack_b);
 }

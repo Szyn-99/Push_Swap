@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:01:49 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/13 15:04:53 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/13 15:58:09 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ typedef struct s_bss
 	int				bits_to_shift;
 }					t_bss;
 void				binary_radix_sort(t_list **stack_a, t_list **stack_b);
-
+/*Main Funcrion*/
 /*Chunks Sort*/
 typedef struct s_Chunk_Sort
 {
@@ -84,7 +84,7 @@ typedef struct s_Chunk_Sort
 	int				max_index;
 	int				position;
 }					t_ChS;
-void	chunks_sort(t_list **stack_a, t_list **stack_b);
+void				chunks_sort(t_list **stack_a, t_list **stack_b);
 
 /*Macros*/
 # ifndef MAX
