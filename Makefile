@@ -20,7 +20,8 @@ SFILES = ft_split.c \
 	./operations/push.c \
 	./operations/rotate.c \
 	./operations/rotate_reverse.c \
-	./operations/swap.c 
+	./operations/swap.c \
+	chunks_sort.c
 
 OFILES = $(SFILES:.c=.o)
 
