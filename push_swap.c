@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:38:06 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/14 21:13:25 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/14 21:40:38 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,21 @@ int	main(int ac, char *av[])
 	if (!stack_a)
 		return (free(concat), write(2, "Failed to Initiliase\n", 22), 1);
 	init_index(&stack_a);
+	t_list *copy;
+	copy = stack_a;
+	while(copy)
+	{
+		printf("value %d ------------ index %d\n", copy->value_raw, copy->value_index);
+		copy = copy->next;
+	}
 	chunks_sort(&stack_a, &stack_b);
+	copy  = stack_a;
+	printf("===============================================================================================");
+	while(copy)
+	{
+		printf("value %d ------------ index %d\n", copy->value_raw, copy->value_index);
+		copy = copy->next;
+	}
 	free(concat);
 	ft_lstclear(&stack_a);
 	ft_lstclear(&stack_b);
