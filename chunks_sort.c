@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   chunks_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: szyn <szyn@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 11:22:11 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/13 18:42:35 by szyn             ###   ########.fr       */
+/*   Updated: 2025/12/14 21:02:26 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,26 @@ int	find_position(t_list *stack, int value)
 	return (-1);
 }
 
+void	chunk_sort_norminette(t_list **stack_a, t_list **stack_b, t_ChS *chunks)
+{
+	while (*stack_b)
+	{
+		chunks->size_now = ft_lstsize(*stack_b);
+		chunks->max_index = find_max(*stack_b);
+		chunks->position = find_position(*stack_b, chunks->max_index);
+		if (chunks->position <= chunks->size_now / 2)
+		{
+			while ((*stack_b)->value_index != chunks->max_index)
+				op_rotate_b(stack_b);
+		}
+		else
+		{
+			while ((*stack_b)->value_index != chunks->max_index)
+				op_rotate_reverse_b(stack_b);
+		}
+		op_push_a(stack_a, stack_b);
+	}
+}
 
 void	chunks_sort(t_list **stack_a, t_list **stack_b)
 {
@@ -60,7 +80,6 @@ void	chunks_sort(t_list **stack_a, t_list **stack_b)
 
 	chunks.start = 0;
 	chunks.end = chunks_size(*stack_a, &chunks) - 1;
-    int current_size;
 	while (*stack_a)
 	{
 		if ((*stack_a)->value_index < chunks.start)
@@ -80,21 +99,5 @@ void	chunks_sort(t_list **stack_a, t_list **stack_b)
 		else
 			op_rotate_a(stack_a);
 	}
-    while (*stack_b)
-	{
-        current_size = ft_lstsize(*stack_b);
-		chunks.max_index = find_max(*stack_b);
-		chunks.position = find_position(*stack_b, chunks.max_index);
-		if (chunks.position <= current_size / 2)
-		{
-			while ((*stack_b)->value_index != chunks.max_index)
-				op_rotate_b(stack_b);
-		}
-		else
-		{
-			while ((*stack_b)->value_index != chunks.max_index)
-				op_rotate_reverse_b(stack_b);
-		}
-		op_push_a(stack_a, stack_b);
-	}
+	chunk_sort_norminette(stack_a, stack_b, &chunks);
 }

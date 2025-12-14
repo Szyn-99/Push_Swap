@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: szyn <szyn@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:38:06 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/13 19:29:10 by szyn             ###   ########.fr       */
+/*   Updated: 2025/12/14 21:13:25 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ char	*concatenated_string(char *av[])
 			if (!le_string)
 				return (NULL);
 		}
+		else if (argument_status == 0)
+			return (NULL);
 		i++;
 	}
 	return (le_string);
@@ -41,7 +43,6 @@ int	main(int ac, char *av[])
 	t_list	*stack_a;
 	t_list	*stack_b;
 	char	*concat;
-	int		size;
 
 	if (!(ac >= 2))
 		return (ft_putstring("nothing to do"), 0);
@@ -49,32 +50,13 @@ int	main(int ac, char *av[])
 	stack_b = NULL;
 	concat = concatenated_string(av);
 	if (!concat)
-	{
-		write(2, "Error\n", 6);
-		return (1);
-	}
+		return (write(2, "Invalid Arguments\n", 19), 1);
 	initialise_list(&stack_a, concat);
-	/* initialise_list doesn't free concat on error; caller frees it */
 	if (!stack_a)
-	{
-		free(concat);
-		write(2, "Error\n", 6);
-		return (1);
-	}
-	/* set indices (and detect duplicates inside init_index) */
+		return (free(concat), write(2, "Failed to Initiliase\n", 22), 1);
 	init_index(&stack_a);
-	size = ft_lstsize(stack_a);
-	
-	if (size > 500)
-		binary_radix_sort(&stack_a, &stack_b);
-	else
-		chunks_sort(&stack_a, &stack_b);
+	chunks_sort(&stack_a, &stack_b);
 	free(concat);
-	while(stack_a)
-	{
-		printf("raw value = %d\nindex value = %d\n", stack_a->value_raw, stack_a->value_index);
-		stack_a = stack_a->next;
-	}
 	ft_lstclear(&stack_a);
 	ft_lstclear(&stack_b);
 	return (0);

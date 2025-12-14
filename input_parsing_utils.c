@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_parsing_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: szyn <szyn@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:21:58 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/13 18:21:25 by szyn             ###   ########.fr       */
+/*   Updated: 2025/12/14 21:19:44 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_isspace(int c)
 
 int	analyse_string(char *str)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -51,4 +51,22 @@ int	analyse_string(char *str)
 			return (0);
 	}
 	return (1);
+}
+
+int duplicate_detector(int array[], int list_size, t_list *list)
+{
+	int i = 0;
+	
+	while (i < list_size - 1)
+	{
+		if (array[i] == array[i + 1])
+		{
+			write(2, "Duplicate Detected :(\n", 23);
+			free(array);
+			ft_lstclear(&list);
+			return 0;
+		}
+		i++;
+	}
+	return 1;
 }
