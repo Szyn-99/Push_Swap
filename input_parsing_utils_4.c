@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_parsing_utils_4.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: szyn <szyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 18:11:37 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/14 21:35:40 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/14 23:02:41 by szyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,29 +98,31 @@ void	get_index_util(t_list *stack_a, int list_size, int *array)
 
 void	init_index(t_list **stack_a)
 {
-	t_list	*copy;
 	int		list_size;
 	int		i;
 	int		*array;
+	t_list	*copy;
 
 	copy = *stack_a;
 	list_size = ft_lstsize(*stack_a);
 	array = malloc(sizeof(int) * list_size);
-	i = 0;
 	if (!array)
-	{
 		return ;
-	}
+	copy = *stack_a;
+	i = 0;
 	while (i < list_size)
 	{
-		array[i] = (*stack_a)->value_raw;
-		*stack_a = (*stack_a)->next;
+		array[i] = copy->value_raw;
+		copy = copy->next;
 		i++;
 	}
 	generate_index_util(array, list_size);
-	
-	if(!duplicate_detector(array, list_size, copy))
+
+	if (!duplicate_detector(array, list_size))
+	{
+		ft_lstclear(stack_a);
 		return;
-	*stack_a = copy;
+	}
+
 	get_index_util(*stack_a, list_size, array);
 }

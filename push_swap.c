@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: szyn <szyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:38:06 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/14 21:40:38 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/14 22:56:57 by szyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,11 @@ char	*concatenated_string(char *av[])
 				return (NULL);
 		}
 		else if (argument_status == 0)
+		{
+			if (le_string)
+				free(le_string);
 			return (NULL);
+		}
 		i++;
 	}
 	return (le_string);

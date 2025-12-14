@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: szyn <szyn@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:01:49 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/14 21:23:35 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/14 23:00:57 by szyn             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_list				*ft_lstnew(int value);
 int					ft_lstsize(t_list *lst);
 
 /*Parsing helpers*/
-int duplicate_detector(int array[], int list_size, t_list *list);
+int duplicate_detector(int array[], int list_size);
 int					ft_isdigit(int c);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_atoi(const char *str);
