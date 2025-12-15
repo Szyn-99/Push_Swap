@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 11:22:11 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/14 21:02:26 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/15 11:50:08 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@ int	chunks_size(t_list *stack, t_ChS *chunks)
 
 	size = ft_lstsize(stack);
 	chunks->size = size;
-	if (size <= 100)
-		return (15);
+	if(size <= 100)
+		return 13;
 	else if (size <= 500)
-		return (30);
-	return (45);
+		return 37;
+	else
+		return 42;
 }
 
 int	find_max(t_list *stack)
@@ -40,17 +41,17 @@ int	find_max(t_list *stack)
 }
 int	find_position(t_list *stack, int value)
 {
-	int	position;
+	int	node_position;
 
-	position = 0;
+	node_position = 0;
 	while (stack)
 	{
 		if (stack->value_index == value)
-			return (position);
-		position++;
+			return (node_position);
+		node_position++;
 		stack = stack->next;
 	}
-	return (-1);
+	return (-1337);
 }
 
 void	chunk_sort_norminette(t_list **stack_a, t_list **stack_b, t_ChS *chunks)
