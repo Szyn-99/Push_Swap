@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:21:58 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/15 15:10:35 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/15 18:33:01 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	duplicate_detector(int array[], int list_size, t_list **stack_a)
 	{
 		if (array[i] == array[i + 1])
 		{
-			write(1, "Duplicate Detected :(\n", 23);
+			ft_putstring_fd("Error\n", 2);
 			free(array);
 			ft_lstclear(stack_a);
 			return (0);

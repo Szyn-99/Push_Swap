@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:01:49 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/15 16:09:36 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/15 18:31:25 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,8 @@ int					ft_lstsize(t_list *lst);
 int					duplicate_detector(int array[], int list_size,
 						t_list **stack_a);
 int					ft_isdigit(int c);
-int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_atoi(const char *str);
-void				ft_putstring(char *s);
+void				ft_putstring_fd(char *s, int fd);
 size_t				ft_strlength(char *s);
 char				**ft_split(char const *s, char c);
 int					ft_isspace(int c);

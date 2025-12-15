@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 23:25:32 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/12 10:51:23 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/15 18:59:40 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,18 @@ void	op_rotate_reverse(t_list **stack)
 void	op_rotate_reverse_a(t_list **stack_a)
 {
 	op_rotate_reverse(stack_a);
-	ft_putstring("rra\n");
+	ft_putstring_fd("rra\n", 1);
 }
 
 void	op_rotate_reverse_b(t_list **stack_b)
 {
 	op_rotate_reverse(stack_b);
-	ft_putstring("rrb\n");
+	ft_putstring_fd("rrb\n", 1);
 }
 
 void	op_rotate_reverse_r(t_list **stack_a, t_list **stack_b)
 {
 	op_rotate_reverse(stack_a);
 	op_rotate_reverse(stack_b);
-	ft_putstring("rrr\n");
+	ft_putstring_fd("rrr\n", 1);
 }

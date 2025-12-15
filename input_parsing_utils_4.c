@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 18:11:37 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/15 16:09:13 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/15 18:50:20 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,7 @@ int	sorted_input_guard(int array[], int list_size, t_list **clear)
 			break ;
 	}
 	if (i == list_size - 1)
-		return (free(array), ft_lstclear(clear), write(1, "Already Sorted!\n",
-				17), 0);
+		return (free(array), ft_lstclear(clear), 0);
 	return (1);
 }
 
