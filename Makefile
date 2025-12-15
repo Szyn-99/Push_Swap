@@ -9,7 +9,6 @@ SFILES = ft_split.c \
 	input_parsing_utils_3.c \
 	input_parsing_utils_4.c \
 	input_parsing_utils.c \
-	binary_radix_sort.c \
 	push_swap.c \
 	./utils_list/ft_lstadd_back_bonus.c \
 	./utils_list/ft_lstclear_bonus.c \

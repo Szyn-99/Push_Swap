@@ -3,27 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   input_parsing_utils_4.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: szyn <szyn@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 18:11:37 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/14 23:02:41 by szyn             ###   ########.fr       */
+/*   Updated: 2025/12/15 16:09:13 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	clear_strings(char **str)
-{
-	int	i;
 
-	i = 0;
-	while (str[i])
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
-}
 
 void	initialise_list(t_list **stack_a, char *concat)
 {
@@ -96,6 +85,24 @@ void	get_index_util(t_list *stack_a, int list_size, int *array)
 	free(array);
 }
 
+int	sorted_input_guard(int array[], int list_size, t_list **clear)
+{
+	int	i;
+
+	i = 0;
+	while (i < list_size - 1)
+	{
+		if (array[i] < array[i + 1])
+			i++;
+		else
+			break ;
+	}
+	if (i == list_size - 1)
+		return (free(array), ft_lstclear(clear), write(1, "Already Sorted!\n",
+				17), 0);
+	return (1);
+}
+
 void	init_index(t_list **stack_a)
 {
 	int		list_size;
@@ -116,13 +123,10 @@ void	init_index(t_list **stack_a)
 		copy = copy->next;
 		i++;
 	}
+	if (!sorted_input_guard(array, list_size, stack_a))
+		return ;
 	generate_index_util(array, list_size);
-
-	if (!duplicate_detector(array, list_size))
-	{
-		ft_lstclear(stack_a);
-		return;
-	}
-
+	if (!duplicate_detector(array, list_size, stack_a))
+		return ;
 	get_index_util(*stack_a, list_size, array);
 }

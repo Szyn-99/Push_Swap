@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 11:22:11 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/15 11:50:08 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/15 16:06:41 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ int	chunks_size(t_list *stack, t_ChS *chunks)
 
 	size = ft_lstsize(stack);
 	chunks->size = size;
-	if(size <= 100)
-		return 13;
+	if (size <= 100)
+		return (13);
 	else if (size <= 500)
-		return 37;
+		return (37);
 	else
-		return 42;
+		return (42);
 }
 
 int	find_max(t_list *stack)
@@ -39,6 +39,7 @@ int	find_max(t_list *stack)
 	}
 	return (max);
 }
+
 int	find_position(t_list *stack, int value)
 {
 	int	node_position;
