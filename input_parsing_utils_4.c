@@ -12,8 +12,6 @@
 
 #include "push_swap.h"
 
-
-
 void	initialise_list(t_list **stack_a, char *concat)
 {
 	char	**raw_values;

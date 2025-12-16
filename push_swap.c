@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:38:06 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/15 18:48:18 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/16 21:20:36 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,10 @@ int	main(int ac, char *av[])
 	t_list	*stack_a;
 	t_list	*stack_b;
 	char	*concat;
+	int		size;
 
 	if (!(ac >= 2))
-		return (ft_putstring_fd("Error\n", 2), 0);
+		return 1;
 	stack_a = NULL;
 	stack_b = NULL;
 	concat = concatenated_string(av);
@@ -59,6 +60,10 @@ int	main(int ac, char *av[])
 	if (!stack_a)
 		return (free(concat), ft_putstring_fd("Error\n", 2), 1);
 	init_index(&stack_a);
+	size = ft_lstsize(stack_a);
+	if (size == 3)
+		return (free(concat), sort_three_and_two_numbers(&stack_a),
+			ft_lstclear(&stack_a), 0);
 	chunks_sort(&stack_a, &stack_b);
 	free(concat);
 	ft_lstclear(&stack_a);
