@@ -6,11 +6,11 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 20:04:45 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/16 21:23:34 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/16 22:41:24 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	sort_two_numbers(t_list **stack)
 {
@@ -64,8 +64,31 @@ void	sort_three_and_two_numbers(t_list **stack)
 		half_sort_three(first_value, second_value, third_value, stack);
 }
 
-
-void sort_five_numbers(t_list **stack_a, t_list **stack_b)
+void	sort_five_numbers(t_list **stack_a, t_list **stack_b)
 {
-    
+	int	smallest_value;
+	int	count;
+	int	smallest_value_position;
+	int	size;
+
+	count = 2;
+	while (count != 0)
+	{
+		size = ft_lstsize(*stack_a);
+		smallest_value = find_min_v2(*stack_a);
+		smallest_value_position = find_position_v2(*stack_a, smallest_value);
+		if (smallest_value_position < size / 2)
+		{
+			while (smallest_value != (*stack_a)->value_index)
+				op_rotate_a(stack_a);
+		}
+		else
+			while (smallest_value != (*stack_a)->value_index)
+				op_rotate_reverse_a(stack_a);
+		op_push_b(stack_b, stack_a);
+		count--;
+	}
+	sort_three_and_two_numbers(stack_a);
+	op_push_a(stack_a, stack_b);
+	op_push_a(stack_a, stack_b);
 }

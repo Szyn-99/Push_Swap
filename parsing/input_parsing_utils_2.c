@@ -6,11 +6,11 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 10:50:51 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/16 20:03:37 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/16 22:26:12 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 size_t	ft_strlength(char *s)
 {

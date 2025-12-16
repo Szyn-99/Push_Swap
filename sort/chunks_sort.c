@@ -6,11 +6,11 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 11:22:11 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/15 16:06:41 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/16 22:26:12 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	chunks_size(t_list *stack, t_ChS *chunks)
 {

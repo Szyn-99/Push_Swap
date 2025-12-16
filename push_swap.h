@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:01:49 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/16 20:52:30 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/16 22:38:43 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,8 @@ typedef struct s_Chunk_Sort
 	int				size_now;
 }					t_ChS;
 void				chunks_sort(t_list **stack_a, t_list **stack_b);
+int	find_min_v2(t_list *stack);
+int	find_position_v2(t_list *stack, int value);
+void	sort_five_numbers(t_list **stack_a, t_list **stack_b);
 void				sort_three_and_two_numbers(t_list **stack);
 #endif

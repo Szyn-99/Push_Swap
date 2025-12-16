@@ -4,12 +4,11 @@ HEADER = push_swap.h
 
 NAME = push_swap
 
-SFILES = ft_split.c \
-	input_parsing_utils_2.c \
-	input_parsing_utils_3.c \
-	input_parsing_utils_4.c \
-	input_parsing_utils.c \
-	push_swap.c \
+SFILES = ./parsing/ft_split.c \
+	./parsing/input_parsing_utils_2.c \
+	./parsing/input_parsing_utils_3.c \
+	./parsing/input_parsing_utils_4.c \
+	./parsing/input_parsing_utils.c \
 	./utils_list/ft_lstadd_back_bonus.c \
 	./utils_list/ft_lstclear_bonus.c \
 	./utils_list/ft_lstdelone_bonus.c \
@@ -20,8 +19,10 @@ SFILES = ft_split.c \
 	./operations/rotate.c \
 	./operations/rotate_reverse.c \
 	./operations/swap.c \
-	chunks_sort.c	\
-	egde_cases.c
+	./sort/chunks_sort.c \
+	./sort/egde_cases.c \
+	./sort/edge_cases_utils.c \
+	./push_swap.c 
 
 OFILES = $(SFILES:.c=.o)
 
