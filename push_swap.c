@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:38:06 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/16 22:53:41 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/16 22:59:18 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,11 @@ int	main(int ac, char *av[])
 	if (!concat)
 		return (ft_putstring_fd("Error\n", 2), 1);
 	initialise_list(&stack_a, concat);
+	init_index(&stack_a);
 	if (!stack_a)
 		return (free(concat), ft_putstring_fd("Error\n", 2), 1);
 	if (control_edge_cases(&stack_a, &stack_b))
 		return (free(concat), ft_lstclear(&stack_a), ft_lstclear(&stack_b), 0);
-	init_index(&stack_a);
 	chunks_sort(&stack_a, &stack_b);
 	return (free(concat), ft_lstclear(&stack_a), ft_lstclear(&stack_b), 0);
 }
