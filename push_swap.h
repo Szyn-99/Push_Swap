@@ -83,8 +83,8 @@ typedef struct s_Chunk_Sort
 	int				size_now;
 }					t_ChS;
 void				chunks_sort(t_list **stack_a, t_list **stack_b);
-int	find_min_v2(t_list *stack);
-int	find_position_v2(t_list *stack, int value);
-void	sort_five_numbers(t_list **stack_a, t_list **stack_b);
+int					find_min_v2(t_list *stack);
+int					find_position_v2(t_list *stack, int value);
+void				sort_five_numbers(t_list **stack_a, t_list **stack_b);
 void				sort_three_and_two_numbers(t_list **stack);
 #endif
