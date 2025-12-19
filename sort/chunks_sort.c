@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 11:22:11 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/16 22:26:12 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/20 00:08:06 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,14 +65,14 @@ void	chunk_sort_norminette(t_list **stack_a, t_list **stack_b, t_ChS *chunks)
 		if (chunks->position <= chunks->size_now / 2)
 		{
 			while ((*stack_b)->value_index != chunks->max_index)
-				op_rotate_b(stack_b);
+				op_rotate_b(stack_b, 2);
 		}
 		else
 		{
 			while ((*stack_b)->value_index != chunks->max_index)
-				op_rotate_reverse_b(stack_b);
+				op_rotate_reverse_b(stack_b, 0x001);
 		}
-		op_push_a(stack_a, stack_b);
+		op_push_a(stack_a, stack_b, 21);
 	}
 }
 
@@ -86,20 +86,20 @@ void	chunks_sort(t_list **stack_a, t_list **stack_b)
 	{
 		if ((*stack_a)->value_index < chunks.start)
 		{
-			op_push_b(stack_b, stack_a);
-			op_rotate_b(stack_b);
+			op_push_b(stack_b, stack_a, 0x01010);
+			op_rotate_b(stack_b, 2);
 			chunks.end++;
 			chunks.start++;
 		}
 		else if (chunks.start <= (*stack_a)->value_index
 			&& (*stack_a)->value_index <= chunks.end)
 		{
-			op_push_b(stack_b, stack_a);
+			op_push_b(stack_b, stack_a, 0x01010);
 			chunks.start++;
 			chunks.end++;
 		}
 		else
-			op_rotate_a(stack_a);
+			op_rotate_a(stack_a, 0000);
 	}
 	chunk_sort_norminette(stack_a, stack_b, &chunks);
 }

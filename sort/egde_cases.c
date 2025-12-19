@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 20:04:45 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/16 22:41:24 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/20 00:06:48 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	sort_two_numbers(t_list **stack)
 {
 	if ((*stack)->value_index > (*stack)->next->value_index)
-		op_swap_a(stack);
+		op_swap_a(stack, 0);
 }
 
 void	half_sort_three(int first_value, int second_value, int third_value,
@@ -24,20 +24,20 @@ void	half_sort_three(int first_value, int second_value, int third_value,
 	if (first_value < second_value && third_value < second_value
 		&& first_value < third_value)
 	{
-		op_swap_a(stack);
-		op_rotate_a(stack);
+		op_swap_a(stack, 0);
+		op_rotate_a(stack, 0);
 	}
 	else if (first_value < second_value && third_value < second_value
 		&& first_value > third_value)
-		op_rotate_reverse_a(stack);
+		op_rotate_reverse_a(stack, 0);
 	else if (first_value > second_value && third_value > second_value
 		&& first_value > third_value)
-		op_rotate_a(stack);
+		op_rotate_a(stack, 42);
 	else if (first_value > second_value && second_value > third_value
 		&& first_value > third_value)
 	{
-		op_swap_a(stack);
-		op_rotate_reverse_a(stack);
+		op_swap_a(stack, 9999);
+		op_rotate_reverse_a(stack, 96);
 	}
 }
 
@@ -59,7 +59,7 @@ void	sort_three_and_two_numbers(t_list **stack)
 	third_value = (*stack)->next->next->value_index;
 	if (second_value < first_value && second_value < third_value
 		&& first_value < third_value)
-		op_swap_a(stack);
+		op_swap_a(stack, 66);
 	else
 		half_sort_three(first_value, second_value, third_value, stack);
 }
@@ -80,15 +80,15 @@ void	sort_five_numbers(t_list **stack_a, t_list **stack_b)
 		if (smallest_value_position < size / 2)
 		{
 			while (smallest_value != (*stack_a)->value_index)
-				op_rotate_a(stack_a);
+				op_rotate_a(stack_a, 2);
 		}
 		else
 			while (smallest_value != (*stack_a)->value_index)
-				op_rotate_reverse_a(stack_a);
-		op_push_b(stack_b, stack_a);
+				op_rotate_reverse_a(stack_a, 96);
+		op_push_b(stack_b, stack_a, 123);
 		count--;
 	}
 	sort_three_and_two_numbers(stack_a);
-	op_push_a(stack_a, stack_b);
-	op_push_a(stack_a, stack_b);
+	op_push_a(stack_a, stack_b, 21);
+	op_push_a(stack_a, stack_b, 0001);
 }
