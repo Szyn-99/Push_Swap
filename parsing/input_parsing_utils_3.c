@@ -6,23 +6,15 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 10:44:51 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/16 22:26:12 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/19 18:46:58 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static int	check_over_flow_sign(int sign)
-{
-	if (sign == -1)
-		return (0);
-	return (-1);
-}
-
-int	ft_atoi(const char *nptr)
+long long	ft_atoi(const char *nptr)
 {
 	long long	result;
-	long long	long_overflow_check;
 	int			i;
 	int			sign;
 
@@ -39,10 +31,7 @@ int	ft_atoi(const char *nptr)
 	}
 	while (nptr[i] <= '9' && '0' <= nptr[i])
 	{
-		long_overflow_check = result;
 		result = (result * 10) + (nptr[i] - '0');
-		if (result / 10 != long_overflow_check)
-			return (check_over_flow_sign(sign));
 		i++;
 	}
 	return (sign * result);

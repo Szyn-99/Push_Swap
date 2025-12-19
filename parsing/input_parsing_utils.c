@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:21:58 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/16 22:26:12 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/19 19:27:59 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,15 @@ int	analyse_string(char *str)
 			i++;
 		else if (str[i] == '-' || str[i] == '+')
 		{
-			if (!ft_isdigit(str[i + 1]))
+			if (!ft_isdigit(str[i + 1]) || (i > 0 && !ft_isspace(str[i - 1])))
 				return (0);
 			i++;
 		}
 		else if (ft_isdigit(str[i]))
-			i++;
+		{
+			while (ft_isdigit(str[i]))
+				i++;
+		}
 		else
 			return (0);
 	}
@@ -62,7 +65,6 @@ int	duplicate_detector(int array[], int list_size, t_list **stack_a)
 	{
 		if (array[i] == array[i + 1])
 		{
-			ft_putstring_fd("Error\n", 2);
 			free(array);
 			ft_lstclear(stack_a);
 			return (0);

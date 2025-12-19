@@ -6,13 +6,11 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:38:06 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/16 22:59:18 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/19 19:51:52 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 char	*concatenated_string(char *av[])
 {
@@ -60,25 +58,37 @@ int	control_edge_cases(t_list **stack_a, t_list **stack_b)
 	return (0);
 }
 
+void	thank_you_norminette(t_main *data, char *av[])
+{
+	data->stack_a = NULL;
+	data->stack_b = NULL;
+	data->concat = concatenated_string(av);
+}
+
 int	main(int ac, char *av[])
 {
-	t_list	*stack_a;
-	t_list	*stack_b;
-	char	*concat;
+	t_main	main;
 
 	if (!(ac >= 2))
 		return (1);
-	stack_a = NULL;
-	stack_b = NULL;
-	concat = concatenated_string(av);
-	if (!concat)
+	thank_you_norminette(&main, av);
+	if (!main.concat)
 		return (ft_putstring_fd("Error\n", 2), 1);
-	initialise_list(&stack_a, concat);
-	init_index(&stack_a);
-	if (!stack_a)
-		return (free(concat), ft_putstring_fd("Error\n", 2), 1);
-	if (control_edge_cases(&stack_a, &stack_b))
-		return (free(concat), ft_lstclear(&stack_a), ft_lstclear(&stack_b), 0);
-	chunks_sort(&stack_a, &stack_b);
-	return (free(concat), ft_lstclear(&stack_a), ft_lstclear(&stack_b), 0);
+	main.status = initialise_list(&main.stack_a, main.concat);
+	if (main.status == 0 || main.status == 1337)
+		return (ft_putstring_fd("Error\n", 2), free(main.concat),
+			ft_lstclear(&main.stack_a), 1);
+	main.status = init_index(&main.stack_a);
+	if (main.status == 0)
+		return (ft_putstring_fd("Error\n", 2), free(main.concat),
+			ft_lstclear(&main.stack_a), 1);
+	else if (main.status == 1337)
+		return (free(main.concat), ft_lstclear(&main.stack_a), 0);
+	if (!main.stack_a)
+		return (free(main.concat), ft_putstring_fd("Error\n", 2), 1);
+	if (control_edge_cases(&main.stack_a, &main.stack_b))
+		return (free(main.concat), ft_lstclear(&main.stack_a), 0);
+	chunks_sort(&main.stack_a, &main.stack_b);
+	return (free(main.concat), ft_lstclear(&main.stack_a),
+		ft_lstclear(&main.stack_b), 0);
 }
