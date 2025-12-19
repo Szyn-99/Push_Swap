@@ -16,7 +16,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-
 /*list*/
 typedef struct s_list
 {
@@ -97,7 +96,6 @@ typedef struct s_main_data
 	char			*concat;
 	int				status;
 }					t_main;
-
 
 # ifndef INT_MAX
 #  define INT_MAX 0x7FFFFFFF
