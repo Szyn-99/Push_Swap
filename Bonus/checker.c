@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 21:28:52 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/20 01:16:35 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/20 01:54:34 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	operations_processor(t_main *main)
 		ft_putstring_fd("OK\n", 1);
 	else
 		ft_putstring_fd("KO\n", 1);
-	return (1);
+	return (free(main->stack_b), 1);
 }
 
 void	thank_you_norminette(t_main *data, char *av[])
@@ -87,10 +87,6 @@ int	main(int ac, char *av[])
 	if (main.status == 0)
 		return (ft_putstring_fd("Error\n", 2), free(main.concat),
 			ft_lstclear(&main.stack_a), 1);
-	main.status = grade_operations(main.stack_a);
-	if (main.status == 1)
-		return (ft_putstring_fd("OK\n", 1), free(main.concat),
-			ft_lstclear(&main.stack_a), 0);
 	if (!main.stack_a)
 		return (free(main.concat), ft_putstring_fd("Error\n", 2), 1);
 	if (operations_processor(&main) == 1337)

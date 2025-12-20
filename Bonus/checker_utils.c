@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 21:17:06 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/20 01:18:04 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/20 01:50:38 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	operations_executor(char *operation, t_list **stack_a, t_list **stack_b)
 	else if (ft_string_cmp(operation, "pa\n") == 0)
 		return (op_push_a(stack_a, stack_b, 0x539), 1);
 	else if (ft_string_cmp(operation, "pb\n") == 0)
-		return (op_push_b(stack_a, stack_b, 0x539), 1);
+		return (op_push_b(stack_b, stack_a, 0x539), 1);
 	else if (ft_string_cmp(operation, "ra\n") == 0)
 		return (op_rotate_a(stack_a, 0x539), 1);
 	else if (ft_string_cmp(operation, "rb\n") == 0)
