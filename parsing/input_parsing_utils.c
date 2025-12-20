@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:21:58 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/19 19:27:59 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/20 05:21:44 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,34 @@ int	ft_isspace(int c)
 	return (0);
 }
 
-int	analyse_string(char *str)
+int	all_is_space(char *str)
 {
 	int	i;
 
 	i = 0;
 	while (str[i])
 	{
+		if (!ft_isspace(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	analyse_string(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (str[i] == '\0' || all_is_space(str))
+		return (0);
+	while (str[i])
+	{
 		if (ft_isspace(str[i]))
 			i++;
 		else if (str[i] == '-' || str[i] == '+')
 		{
-			if (!ft_isdigit(str[i + 1]) || (i > 0 && !ft_isspace(str[i - 1])))
+			if (!str[i + 1] || !ft_isdigit(str[i + 1]) || (i > 0 && !ft_isspace(str[i - 1])))
 				return (0);
 			i++;
 		}

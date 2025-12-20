@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 21:28:52 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/20 01:54:34 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/20 04:37:38 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,26 @@ void	thank_you_norminette(t_main *data, char *av[])
 	data->concat = concatenated_string(av);
 }
 
+int	duplicate_detector_stack(t_list *stack)
+{
+	t_list	*copy;
+	t_list	*second_copy;
+
+	copy = stack;
+	while (copy)
+	{
+		second_copy = copy->next;
+		while (second_copy)
+		{
+			if (copy->value_raw == second_copy->value_raw)
+				return (0);
+			second_copy = second_copy->next;
+		}
+		copy = copy->next;
+	}
+	return (1);
+}
+
 int	main(int ac, char *av[])
 {
 	t_main	main;
@@ -89,6 +109,9 @@ int	main(int ac, char *av[])
 			ft_lstclear(&main.stack_a), 1);
 	if (!main.stack_a)
 		return (free(main.concat), ft_putstring_fd("Error\n", 2), 1);
+	if (!duplicate_detector_stack(main.stack_a))
+		return (ft_putstring_fd("Error\n", 2), free(main.concat),
+			ft_lstclear(&main.stack_a), 1);
 	if (operations_processor(&main) == 1337)
 		return (1);
 	return (ft_lstclear(&main.stack_a), free(main.concat), 0);

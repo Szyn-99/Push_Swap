@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:01:49 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/20 00:05:31 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/20 04:30:19 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ char						*ft_strjoin(char *s1, char *s2);
 char						*ft_strdup(char *s);
 void						clear_strings(char **str);
 void						ft_putchar_fd(char c, int fd);
+int							all_is_space(char *str);
 
 /* main helpers */
 typedef struct s_main_data	t_main;
