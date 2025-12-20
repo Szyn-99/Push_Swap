@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 21:17:06 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/20 00:12:20 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/20 01:18:04 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	grade_operations(t_list *stack)
 	current = stack;
 	while (current->next)
 	{
-		if (current->value_index > current->next->value_index)
+		if (current->value_raw > current->next->value_raw)
 			return (0);
 		current = current->next;
 	}

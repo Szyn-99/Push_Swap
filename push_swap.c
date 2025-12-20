@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:38:06 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/19 19:51:52 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/20 01:12:21 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	main(int ac, char *av[])
 	if (!main.concat)
 		return (ft_putstring_fd("Error\n", 2), 1);
 	main.status = initialise_list(&main.stack_a, main.concat);
-	if (main.status == 0 || main.status == 1337)
+	if (main.status == 0)
 		return (ft_putstring_fd("Error\n", 2), free(main.concat),
 			ft_lstclear(&main.stack_a), 1);
 	main.status = init_index(&main.stack_a);

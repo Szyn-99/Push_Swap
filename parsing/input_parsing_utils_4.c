@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 18:11:37 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/19 18:41:36 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/20 01:12:29 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	initialise_list(t_list **stack_a, char *concat)
 	{
 		raw_val_n = ft_atoi(raw_values[i]);
 		if (raw_val_n > INT_MAX || raw_val_n < INT_MIN)
-			return (1337);
+			return (0);
 		node = ft_lstnew(raw_val_n);
 		if (!node)
 			return (clear_strings(raw_values), ft_lstclear(stack_a), 0);
