@@ -18,7 +18,7 @@ Other operations can be used by adding the following "flags":
 ↳ make clean: deleting the object files after using them to compile the project 
 ↳ make fclean: deleting the object files and the executable 
 
-### Resources
+## Resources
 many resources were used to accomplish and finish this project, some of the resources were :
 
 ⧪ to get a sight about complexity and analyses https://en.wikipedia.org/wiki/Analysis_of_algorithms
