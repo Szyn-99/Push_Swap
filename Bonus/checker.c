@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 21:28:52 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/20 04:37:38 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/22 16:49:34 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int	main(int ac, char *av[])
 	t_main	main;
 
 	if (!(ac >= 2))
-		return (1);
+		return (0);
 	thank_you_norminette(&main, av);
 	if (!main.concat)
 		return (ft_putstring_fd("Error\n", 2), 1);

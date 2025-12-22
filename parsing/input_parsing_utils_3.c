@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 10:44:51 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/19 18:46:58 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/22 16:56:21 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ long long	ft_atoi(const char *nptr)
 	result = 0;
 	i = 0;
 	sign = 1;
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
+	while ((nptr[i] >= 10 && nptr[i] <= 13) || nptr[i] == ' ')
 		i++;
 	if (nptr[i] == '+' || nptr[i] == '-')
 	{
