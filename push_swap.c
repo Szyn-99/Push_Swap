@@ -65,8 +65,7 @@ void	thank_you_norminette(t_main *data, char *av[])
 	data->concat = concatenated_string(av);
 }
 
-
-int half_main(t_main *main)
+int	half_main(t_main *main)
 {
 	if (main->status == 0)
 		return (ft_putstring_fd("Error\n", 2), free(main->concat),
@@ -81,7 +80,7 @@ int half_main(t_main *main)
 	if (control_edge_cases(&main->stack_a, &main->stack_b))
 		return (free(main->concat), ft_lstclear(&main->stack_a), 0);
 	chunks_sort(&main->stack_a, &main->stack_b);
-	return 1;
+	return (1);
 }
 
 int	main(int ac, char *av[])
@@ -98,6 +97,5 @@ int	main(int ac, char *av[])
 		return (ft_putstring_fd("Error\n", 2), free(main.concat),
 			ft_lstclear(&main.stack_a), 1);
 	main.status = init_index(&main.stack_a);
-	
 	return (half_main(&main));
 }

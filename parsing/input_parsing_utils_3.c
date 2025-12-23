@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 10:44:51 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/22 16:56:21 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/23 14:12:11 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,17 @@ void	clear_strings(char **str)
 		i++;
 	}
 	free(str);
+}
+
+int	half_init_index(t_list **stack_a, int list_size, int *array)
+{
+	if (sorted_input_guard(array, list_size, stack_a) == 1337)
+		return (1337);
+	if (reverse_sorted_input_guard(array, list_size) == 1)
+		return (99);
+	generate_index_util(array, list_size);
+	if (!duplicate_detector(array, list_size, stack_a))
+		return (0);
+	get_index_util(*stack_a, list_size, array);
+	return (1);
 }

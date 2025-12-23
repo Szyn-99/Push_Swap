@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:01:49 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/23 13:48:48 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/23 14:12:22 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ int							reverse_sorted_input_guard(int array[],
 void						generate_index_util(int *array, int size);
 void						get_index_util(t_list *stack_a, int list_size,
 								int *array);
-
+int							half_init_index(t_list **stack_a, int list_size,
+								int *array);
 /*Operations*/
 void						op_push(t_list **stack_d, t_list **stack_s);
 void						op_push_a(t_list **stack_a, t_list **stack_b,
