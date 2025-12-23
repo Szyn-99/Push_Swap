@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:38:06 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/22 22:39:53 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/23 14:07:35 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,25 @@ void	thank_you_norminette(t_main *data, char *av[])
 	data->concat = concatenated_string(av);
 }
 
+
+int half_main(t_main *main)
+{
+	if (main->status == 0)
+		return (ft_putstring_fd("Error\n", 2), free(main->concat),
+			ft_lstclear(&main->stack_a), 1);
+	else if (main->status == 1337)
+		return (free(main->concat), ft_lstclear(&main->stack_a), 0);
+	else if (main->status == 99)
+		return (sorting_ra(&main->stack_a), free(main->concat),
+			ft_lstclear(&main->stack_a), 0);
+	if (!main->stack_a)
+		return (free(main->concat), ft_putstring_fd("Error\n", 2), 1);
+	if (control_edge_cases(&main->stack_a, &main->stack_b))
+		return (free(main->concat), ft_lstclear(&main->stack_a), 0);
+	chunks_sort(&main->stack_a, &main->stack_b);
+	return 1;
+}
+
 int	main(int ac, char *av[])
 {
 	t_main	main;
@@ -79,16 +98,6 @@ int	main(int ac, char *av[])
 		return (ft_putstring_fd("Error\n", 2), free(main.concat),
 			ft_lstclear(&main.stack_a), 1);
 	main.status = init_index(&main.stack_a);
-	if (main.status == 0)
-		return (ft_putstring_fd("Error\n", 2), free(main.concat),
-			ft_lstclear(&main.stack_a), 1);
-	else if (main.status == 1337)
-		return (free(main.concat), ft_lstclear(&main.stack_a), 0);
-	if (!main.stack_a)
-		return (free(main.concat), ft_putstring_fd("Error\n", 2), 1);
-	if (control_edge_cases(&main.stack_a, &main.stack_b))
-		return (free(main.concat), ft_lstclear(&main.stack_a), 0);
-	chunks_sort(&main.stack_a, &main.stack_b);
-	return (free(main.concat), ft_lstclear(&main.stack_a),
-		ft_lstclear(&main.stack_b), 0);
+	
+	return (half_main(&main));
 }

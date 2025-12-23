@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 18:11:37 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/20 01:12:29 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/23 13:51:46 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	initialise_list(t_list **stack_a, char *concat)
 	{
 		raw_val_n = ft_atoi(raw_values[i]);
 		if (raw_val_n > INT_MAX || raw_val_n < INT_MIN)
-			return (0);
+			return (clear_strings(raw_values), 0);
 		node = ft_lstnew(raw_val_n);
 		if (!node)
 			return (clear_strings(raw_values), ft_lstclear(stack_a), 0);
@@ -105,7 +105,6 @@ int	init_index(t_list **stack_a)
 	int		*array;
 	t_list	*copy;
 
-	copy = *stack_a;
 	list_size = ft_lstsize(*stack_a);
 	array = malloc(sizeof(int) * list_size);
 	if (!array)
@@ -120,6 +119,8 @@ int	init_index(t_list **stack_a)
 	}
 	if (sorted_input_guard(array, list_size, stack_a) == 1337)
 		return (1337);
+	if (reverse_sorted_input_guard(array, list_size) == 1)
+		return (99);
 	generate_index_util(array, list_size);
 	if (!duplicate_detector(array, list_size, stack_a))
 		return (0);

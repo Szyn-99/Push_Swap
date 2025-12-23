@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 20:04:45 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/20 00:06:48 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/23 13:47:45 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,20 @@ void	sort_five_numbers(t_list **stack_a, t_list **stack_b)
 	sort_three_and_two_numbers(stack_a);
 	op_push_a(stack_a, stack_b, 21);
 	op_push_a(stack_a, stack_b, 0001);
+}
+int	reverse_sorted_input_guard(int array[], int list_size)
+{
+	int	i;
+
+	i = 0;
+	while (i < list_size - 1)
+	{
+		if (array[i] > array[i + 1])
+			i++;
+		else
+			break ;
+	}
+	if (i == list_size - 1)
+		return (free(array), 1);
+	return (0);
 }

@@ -23,6 +23,7 @@ SFILES = ./parsing/ft_split.c \
 	./sort/chunks_sort.c \
 	./sort/egde_cases.c \
 	./sort/edge_cases_utils.c \
+	./sort/edge_cases_2.c \
 	./push_swap.c 
 
 SFILES_CHECKER = ./Bonus/checker.c \

@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:01:49 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/20 04:30:19 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/23 13:48:48 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ int							initialise_list(t_list **stack_a, char *concat);
 int							init_index(t_list **stack_a);
 int							sorted_input_guard(int array[], int list_size,
 								t_list **clear);
+int							reverse_sorted_input_guard(int array[],
+								int list_size);
 void						generate_index_util(int *array, int size);
 void						get_index_util(t_list *stack_a, int list_size,
 								int *array);
@@ -117,6 +119,7 @@ void						sort_three_and_two_numbers(t_list **stack);
 void						sort_two_numbers(t_list **stack);
 void						half_sort_three(int first_value, int second_value,
 								int third_value, t_list **stack);
+void						sorting_ra(t_list **stack_a);
 
 /*controlling ERRORS*/
 
