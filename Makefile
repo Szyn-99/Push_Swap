@@ -29,6 +29,8 @@ SFILES = ./parsing/ft_split.c \
 SFILES_CHECKER = ./Bonus/checker.c \
 	./Bonus/checker_utils.c \
 	./parsing/ft_split.c \
+	./sort/egde_cases.c \
+	./sort/edge_cases_utils.c \
 	./parsing/input_parsing_utils.c \
 	./parsing/input_parsing_utils_2.c \
 	./parsing/input_parsing_utils_3.c \
