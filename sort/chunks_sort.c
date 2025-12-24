@@ -6,31 +6,11 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 11:22:11 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/24 18:08:43 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/24 18:33:15 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-static int	detect_pattern(t_list *stack, int size)
-{
-	int	count;
-	int	diff;
-
-	count = 0;
-	while (stack && stack->next)
-	{
-		diff = stack->value_index - stack->next->value_index;
-		if (diff < 0)
-			diff = -diff;
-		if (diff > 1 && diff < 5)
-			count++;
-		stack = stack->next;
-	}
-	if (count * 10 >= size * 6)
-		return (1);
-	return (0);
-}
 
 int	chunks_size(t_list *stack, t_ChS *chunks)
 {
@@ -99,11 +79,8 @@ void	chunk_sort_norminette(t_list **stack_a, t_list **stack_b, t_ChS *chunks)
 void	chunks_sort(t_list **stack_a, t_list **stack_b)
 {
 	t_ChS	chunks;
-	int		pattern;
 
-	chunks.start = 0;
-	chunks.end = chunks_size(*stack_a, &chunks) - 1;
-	pattern = detect_pattern(*stack_a, chunks.size);
+	init_chunks_var(&chunks, stack_a);
 	while (*stack_a)
 	{
 		if ((*stack_a)->value_index < chunks.start)
@@ -120,7 +97,7 @@ void	chunks_sort(t_list **stack_a, t_list **stack_b)
 			chunks.start++;
 			chunks.end++;
 		}
-		else if (pattern)
+		else if (chunks.pattern)
 			op_rotate_reverse_a(stack_a, 0);
 		else
 			op_rotate_a(stack_a, 0000);

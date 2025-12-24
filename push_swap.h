@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 16:01:49 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/24 18:23:04 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/24 18:33:43 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ typedef struct s_Chunk_Sort
 	int						max_index;
 	int						position;
 	int						size_now;
+	int						pattern;
 }							t_ChS;
 void						chunks_sort(t_list **stack_a, t_list **stack_b);
 int							chunks_size(t_list *stack, t_ChS *chunks);
@@ -118,7 +119,8 @@ void						sort_three_and_two_numbers(t_list **stack);
 void						sort_two_numbers(t_list **stack);
 void						half_sort_three(int first_value, int second_value,
 								int third_value, t_list **stack);
-
+int							detect_pattern(t_list *stack, int size);
+void						init_chunks_var(t_ChS *chunks, t_list **stack_a);
 /*controlling ERRORS*/
 
 typedef struct s_main_data
