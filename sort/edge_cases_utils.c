@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 22:17:34 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/24 18:33:52 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/24 19:07:52 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,21 +46,22 @@ int	find_min_v2(t_list *stack)
 int	detect_pattern(t_list *stack, int size)
 {
 	int	count;
-	int	diff;
-
+	int	x;
+	int current_index;
+	int next_index;
 	count = 0;
 	while (stack && stack->next)
 	{
-		diff = stack->value_index - stack->next->value_index;
-		if (diff < 0)
-			diff = -diff;
-		if (diff > 1 && diff < 5)
+		current_index = stack->value_index;
+		next_index = stack->next->value_index;
+		x = current_index - next_index;
+		if (x < 0)
+			x = -x;
+		if (x > 1 && x < 5)
 			count++;
 		stack = stack->next;
 	}
-	if (count * 10 >= size * 6)
-		return (1);
-	return (0);
+	return (count >= size * 0.6);
 }
 
 void	init_chunks_var(t_ChS *chunks, t_list **stack_a)

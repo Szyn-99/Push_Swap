@@ -45,7 +45,6 @@ SFILES_CHECKER = ./Bonus/checker.c \
 	./Bonus/get_next_line.c \
 	./Bonus/get_next_line_utils.c
 
-
 OFILES = $(SFILES:.c=.o)
 OFILES_CHECKER = $(SFILES_CHECKER:.c=.o)
 
