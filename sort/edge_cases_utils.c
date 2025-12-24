@@ -47,8 +47,9 @@ int	detect_pattern(t_list *stack, int size)
 {
 	int	count;
 	int	x;
-	int current_index;
-	int next_index;
+	int	current_index;
+	int	next_index;
+
 	count = 0;
 	while (stack && stack->next)
 	{
