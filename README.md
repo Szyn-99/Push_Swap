@@ -37,7 +37,9 @@ many resources were used to accomplish and finish this project, some of the reso
 ⧪ analysing the approach of other peers on the project and algorithms : 
 
         https://medium.com/@ayogun/push-swap-c1f5d2d41e97
-        https://satyadeepmaheshwari.medium.com/sorting-large-datasets-with-limited-memory-the-chunked-merge-sort-approach-318275275c81
+        https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a
+        https://satyadeepmaheshwari.medium.com/
+        sorting-large-datasets-with-limited-memory-the-chunked-merge-sort-approach-318275275c81
         https://stackoverflow.com/questions/45631661/better-sort-algorithm-for-pre-sorted-chunks
         https://medium.com/@julien-ctx/push-swap-an-easy-and-efficient-algorithm-to-sort-numbers-4b7049c2639a
 
