@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 11:22:11 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/24 18:33:15 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/24 22:46:50 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	chunks_sort(t_list **stack_a, t_list **stack_b)
 			chunks.start++;
 			chunks.end++;
 		}
-		else if (chunks.pattern)
+		else if (chunks.switch_mod)
 			op_rotate_reverse_a(stack_a, 0);
 		else
 			op_rotate_a(stack_a, 0000);
