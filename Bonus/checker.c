@@ -6,7 +6,7 @@
 /*   By: aymel-ha <aymel-ha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 21:28:52 by aymel-ha          #+#    #+#             */
-/*   Updated: 2025/12/22 16:49:34 by aymel-ha         ###   ########.fr       */
+/*   Updated: 2025/12/25 16:18:49 by aymel-ha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	operations_processor(t_main *main)
 		ft_putstring_fd("OK\n", 1);
 	else
 		ft_putstring_fd("KO\n", 1);
-	return (free(main->stack_b), 1);
+	return (ft_lstclear(&main->stack_b), 1);
 }
 
 void	thank_you_norminette(t_main *data, char *av[])
